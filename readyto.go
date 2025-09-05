@@ -6,7 +6,8 @@ import (
 	"os"
 	"readytogo/express"
 	"readytogo/python"
-	"readytogo/file_tree"
+
+	"github.com/parsabordbar/ctx3/filetree"
 )
 
 func main() {
@@ -28,8 +29,8 @@ func main() {
 			expressFlag.Parse(os.Args[2:])
 			if *expressPrew {
 				root := "." 
-				fmt.Println("File Tree:")
-				file_tree.PrintTree(root, "  ")
+				fmt.Println("Preview:")
+				filetree.PrintTree(root, " ")
 				os.Exit(0)
 			} else {
 				express.Express(*expressProjectName)
@@ -39,10 +40,6 @@ func main() {
 			pythonFlag.Parse(os.Args[2:])
 			python.Python(*pyProjectName)
 		}
-		// case "tree":
-		// 	root := "."
-		// 	fmt.Println("File Tree:")
-		// 	file_tree.PrintTree(root, "  ")
 	}
 
 	fmt.Println(`
@@ -52,5 +49,5 @@ func main() {
 	██╔══██╗██╔══╝  ██╔══██║██║  ██║  ╚██╔╝     ██║   ██║   ██║██║   ██║██║   ██║
 	██║  ██║███████╗██║  ██║██████╔╝   ██║      ██║   ╚██████╔╝╚██████╔╝╚██████╔╝
 	╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝    ╚═╝      ╚═╝    ╚═════╝  ╚═════╝  ╚═════╝ 
-	` + "\n" + `	enjoy coding!` + "\n")
+	` + "\n" + `	enjoy coding!`)
 }
